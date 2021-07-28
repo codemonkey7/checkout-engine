@@ -1,4 +1,4 @@
-package com.tasks.checkout.logic;
+package com.tasks.checkout.engine.impl;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -8,18 +8,21 @@ import java.nio.file.Paths;
 import com.github.cliftonlabs.json_simple.JsonException;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
-import com.tasks.checkout.interfaces.ICheckoutService;
+import com.tasks.checkout.engine.ICheckoutService;
 
 public class CheckoutService implements ICheckoutService {
 
+    // Need to read config files, probably will move this
     public void init() {
-        Reader reader;
         try {
-            reader = Files.newBufferedReader(Paths.get("product.json"));
+            Reader reader = Files.newBufferedReader(Paths.get("static/products.json"));
             JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
+
+            System.out.print(parser);
+
         } catch (IOException | JsonException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+
+            System.err.println(e);
         }
     
         // create parser

@@ -1,0 +1,19 @@
+{
+	"promotions" : [
+		{
+			"itemRef" : "A",
+			"qty" : 3,
+			"price" : 130
+		},
+		{
+			"itemRef" : "B",
+			"qty" : 2,
+			"price" : 130
+		},
+		{
+			"itemRef" : ["C", "D"],
+			"qty" : [1, 1],
+			"price" : 30
+		}
+	]
+}
